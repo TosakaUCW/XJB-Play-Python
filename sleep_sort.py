@@ -6,7 +6,7 @@ thread_list = []
 
 
 def MyThread(value):
-    time.sleep(0.01 * pow(1.1, float(value)))
+    time.sleep(0.01 * pow(1.0001, float(value)))
     print(value)
 
 
