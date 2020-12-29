@@ -1,6 +1,7 @@
 import time
 import threading
 
+data = []
 thread_list = []
 
 
@@ -12,9 +13,9 @@ def MyThread(value):
 def main():
     n = int(input('n : '))
     for i in range(n):
-        thread_list.append(
-            threading.Thread(target=MyThread,
-                             args=input('data[%d] : ' % (i + 1))))
+        data.append(input('data[%d] : ' % (i + 1)))
+        thread = threading.Thread(target=MyThread, args=(str(data[i]), ))
+        thread_list.append(thread)
     start = time.perf_counter()
     for thread in thread_list:
         thread.start()
